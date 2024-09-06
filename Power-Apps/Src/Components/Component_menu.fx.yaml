@@ -1,0 +1,133 @@
+Component_menu As CanvasComponent:
+    background_color: |-
+        =ColorValue("#ccc8c8")
+    color_menu: |-
+        =ColorValue("#ccc8c8")
+    expandir_menu: =false
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =Component_menu.menu_height
+    items: |-
+        =Table(
+            {
+                ID: 1,
+                name: "Inicio",
+                Image:hogar,
+                nav: App.ActiveScreen
+            },
+            {
+                ID: 2,
+                name: "Administrador",
+                Image:user_1077114,
+                nav: App.ActiveScreen
+            },
+            {
+                ID: 3,
+                name: "Empleados",
+                Image:empleados,
+                nav: App.ActiveScreen
+            },
+            {
+                ID: 4,
+                name:"Programacion",
+                Image: schedule_2669444,
+                nav: App.ActiveScreen
+            },
+            {
+                ID: 5,
+                name:"Produccion",
+                Image: lista,
+                nav: App.ActiveScreen
+            },
+            {
+                ID: 6,
+                name: "Informes",
+                Image:stats_1420470,
+                nav: App.ActiveScreen
+            }
+        )
+    menu_height: =If(mostrar_menu, Component_menu.set_menu_height,Icon9.Width)
+    menu_width: =If(mostrar_menu,Component_menu.set_menu_width, Icon9.Width)
+    OnReset: =Set(mostrar_menu,Component_menu.expandir_menu)
+    set_menu_height: =61
+    set_menu_width: =914
+    Width: =Component_menu.menu_width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Icon9 As icon.Waffle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(236, 237, 238, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =39
+        Icon: =Icon.Waffle
+        OnSelect: =Set(mostrar_menu,!mostrar_menu)
+        Width: =39
+        X: =11
+        Y: =10
+        ZIndex: =2
+
+    Gallery6 As gallery.galleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtrada"
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DelayItemLoading: =true
+        Height: =60
+        Items: =Component_menu.items
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =49
+        Visible: =mostrar_menu
+        Width: =385
+        X: =519
+        ZIndex: =3
+
+        Image28 As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =33
+            Image: =ThisItem.Image
+            OnSelect: =Select(Parent)
+            Width: =44
+            X: =2
+            Y: =13
+            ZIndex: =1
+
+        Rectangle8 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =Component_menu.color_menu
+            Height: =5
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.nav = App.ActiveScreen
+            Width: =Parent.TemplateWidth
+            Y: =55
+            ZIndex: =2
+
+        Button13 As button:
+            BorderColor: =Color.Transparent
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =Color.Transparent
+            HoverColor: =Color.Transparent
+            HoverFill: =Color.Transparent
+            OnSelect: |-
+                =Navigate(ThisItem.nav);
+                Set(mostrar_menu,!mostrar_menu)
+            PressedBorderColor: =Color.Transparent
+            PressedColor: =Color.Transparent
+            PressedFill: =Color.Transparent
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.TemplateWidth
+            ZIndex: =3
+
