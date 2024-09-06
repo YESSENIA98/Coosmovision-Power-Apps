@@ -1,0 +1,111 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =Set(varUsuarios, LookUp(Usuarios, Usuario=User().Email,Rol));
+        Set(varCurrentDate,Date(Year(Today()),Month(Today()),1));
+        Set(_currentDate,Today());
+        ClearCollect(
+            Navegacion,
+            Table(
+            {
+                ID: 1,
+                name: "Inicio",
+                Image:hogar,
+                nav: If(varUsuarios = "Administrador" || varUsuarios = "Consulta" || varUsuarios = "Contabilidad" || varUsuarios = "Producción" , Inicio) 
+            },
+            {
+                ID: 2,
+                name: "Administrador",
+                Image:user_1077114,
+                nav: If(varUsuarios = "Administrador", Administrativos)
+                
+            },
+            {
+                ID: 3,
+                name: "Empleados",
+                Image:empleados,
+                nav: If(varUsuarios = "Administrador", Empleados)
+            },
+            {
+                ID: 4,
+                name:"Programación",
+                Image: schedule_2669444,
+                nav:If(varUsuarios = "Administrador" || varUsuarios = "Producción", Programación)
+            },
+            {
+                ID: 5,
+                name:"Producción",
+                Image: lista,
+                nav:If(varUsuarios = "Administrador" || varUsuarios = "Producción", Producción)
+            },
+            {
+                ID: 6,
+                name: "Informes",
+                Image:stats_1420470,
+                nav: If(varUsuarios = "Administrador" || varUsuarios = "Consulta" || varUsuarios = "Contabilidad", Informe)
+            }
+        ));
+        
+        Set(horastotales, If(Today() > Date(2024,7,16) && Today() < Date(2025,7,16),
+        46,
+        If(Today() > Date(2025,7,16) && Today() < Date(2026,7,16),
+        44,
+        If(Today() > Date(2026,7,16),
+        42,
+        47
+        ))));
+        
+        Set(acumulado, If(Today() > Date(2024,7,16) && Today() < Date(2025,7,16),
+        46,
+        If(Today() > Date(2025,7,16) && Today() < Date(2026,7,16),
+        44,
+        If(Today() > Date(2026,7,16),
+        42,
+        47
+        ))));
+        
+        Set(Vresultado, GruposdeOffice365.HttpRequest(
+        "https://graph.microsoft.com/v1.0/sites/40a82aef-d159-4bdd-a89c-63ebef87b18a,4c8c1de4-1512-4fbc-97a0-08645cb6bb8a/lists/ce0d37a6-73f6-4ba0-87d6-bfe19b84dc2a/items?$expand=fields",
+         "GET",
+        "" ));
+        
+        Set(Vnext,Text(Vresultado.'@odata.nextLink'));
+        ClearCollect(ProgramacionAll,Table(Vresultado.value));
+        
+        Set(Vproduccion, GruposdeOffice365.HttpRequest(
+        "https://graph.microsoft.com/v1.0/sites/40a82aef-d159-4bdd-a89c-63ebef87b18a,4c8c1de4-1512-4fbc-97a0-08645cb6bb8a/lists/6a05e52f-f8f2-4d8c-8720-a99783feea3a/items?$expand=fields",
+         "GET",
+        "" ));
+        Set(VnextProduccion,Text(Vproduccion.'@odata.nextLink'));
+        ClearCollect(ProduccionAll,Table(Vproduccion.value));
+        
+        Set(Vhorasdia, GruposdeOffice365.HttpRequest(
+        "https://graph.microsoft.com/v1.0/sites/40a82aef-d159-4bdd-a89c-63ebef87b18a,4c8c1de4-1512-4fbc-97a0-08645cb6bb8a/lists/2c77cadb-958c-4da1-92b2-5807901534ed/items?$expand=fields",
+         "GET",
+        "" ));
+        Set(VnextHorasdia,Text(Vhorasdia.'@odata.nextLink'));
+        ClearCollect(HorasdiaAll,Table(Vhorasdia.value));
+        
+        Set(Vhorasemana, GruposdeOffice365.HttpRequest(
+        "https://graph.microsoft.com/v1.0/sites/40a82aef-d159-4bdd-a89c-63ebef87b18a,4c8c1de4-1512-4fbc-97a0-08645cb6bb8a/lists/d128c44d-38ef-40a5-9346-f38192ecb439/items?$expand=fields",
+         "GET",
+        "" ));
+        Set(VnextHorasemana,Text(Vhorasemana.'@odata.nextLink'));
+        ClearCollect(HorasemanaAll,Table(Vhorasemana.value));
+        
+        
+        
+        
+         
+        
+        
+    StartScreen: =
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

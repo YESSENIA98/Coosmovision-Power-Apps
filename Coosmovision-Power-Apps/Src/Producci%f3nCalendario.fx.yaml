@@ -1,0 +1,932 @@
+ProducciónCalendario As screen:
+    Fill: =RGBA(236, 237, 238, 1)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: |-
+        =Set(_dateSelected1,_currentDate);
+        Set(varFirstDayOfWeek1,
+        Switch(Weekday(_dateSelected1),
+        7, DateAdd(_dateSelected1,-6,TimeUnit.Days),
+        6, DateAdd(_dateSelected1,-5,TimeUnit.Days),
+        5, DateAdd(_dateSelected1,-4,TimeUnit.Days),
+        4, DateAdd(_dateSelected1,-3,TimeUnit.Days),
+        3, DateAdd(_dateSelected1,-2,TimeUnit.Days),
+        2, DateAdd(_dateSelected1,-1,TimeUnit.Days),
+        1, DateAdd(_dateSelected1,-0,TimeUnit.Days),
+        DateValue("01/01/2023")));
+        /*ClearCollect(agrupacion2; GroupBy(Producción_1;field_9;field_16;field_17;field_18;field_11;field_14;field_36;Agrupada))*/
+
+    headerCalendarProgramacion_1 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(0, 71, 111, 1)
+        Height: =61
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container40_2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Label26_1 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(236, 237, 238, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Lighter
+                Size: =18
+                Text: ="Producción Calendario"
+                Width: =290
+                X: =42
+                Y: =11
+                ZIndex: =4
+
+    bodyCalendarProgramacion_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height-61
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        Y: =headerCalendarProgramacion_1.Height
+        ZIndex: =2
+
+        Container39_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            LblMonthSelected4_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =36
+                Text: =Proper(Text(varFirstDayOfWeek1, "mmmm yyyy"))
+                Width: =299
+                Wrap: =false
+                X: =533
+                Y: =322
+                ZIndex: =3
+
+            iconPrevMonth4_3 As icon.ChevronLeft:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Icon: =Icon.ChevronLeft
+                OnSelect: =Set(varFirstDayOfWeek1,DateAdd(varFirstDayOfWeek1, -7, TimeUnit.Days))
+                PaddingBottom: =7
+                PaddingLeft: =7
+                PaddingRight: =7
+                PaddingTop: =7
+                TabIndex: =0
+                Tooltip: ="Ver el mes anterior"
+                Width: =49
+                X: =533
+                Y: =323
+                ZIndex: =4
+
+            iconNextMonth4_3 As icon.ChevronRight:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Icon: =Icon.ChevronRight
+                OnSelect: =Set(varFirstDayOfWeek1,DateAdd(varFirstDayOfWeek1, 7, TimeUnit.Days))
+                PaddingBottom: =7
+                PaddingLeft: =7
+                PaddingRight: =7
+                PaddingTop: =7
+                TabIndex: =0
+                Tooltip: ="Ver el mes siguiente"
+                Width: =49
+                X: =783
+                Y: =322
+                ZIndex: =5
+
+            Dropdown12 As dropdown:
+                BorderColor: =RGBA(0, 71, 111, 1)
+                ChevronBackground: =RGBA(0, 71, 111, 1)
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: |-
+                    =ColorFade(ColorValue("#1674b4"), -20%)
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: ="No aplica"
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =App.Theme.Font
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Items: =Distinct(Programa,Nombre)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(22, 116, 180, 1)
+                SelectionFill: =RGBA(0, 71, 111, 1)
+                Size: =13
+                Width: =276
+                X: =18
+                Y: =17
+                ZIndex: =6
+
+            Gallery1_1 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtrada"
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =302
+                Items: =[1,2,3,4,5,6,7]
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =492
+                Width: =1365
+                WrapCount: =7
+                Y: =403
+                ZIndex: =7
+
+                Title18_3 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(51, 51, 51, 1)
+                    Color: |-
+                        =If(DateAdd(varFirstDayOfWeek1, ThisItem.Value, TimeUnit.Days)=Value(Today()),ColorFade(ColorValue("#FFFFFF"),1%),ColorValue("#000000"))
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: |-
+                        =If(DateAdd(varFirstDayOfWeek1, ThisItem.Value, TimeUnit.Days)=Today(),ColorFade(ColorValue("#00476f"),1%),ColorValue("#ccc8c8"))
+                    Font: =App.Theme.Font
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =26
+                    Italic: =true
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Text(DateAdd(varFirstDayOfWeek1, ThisItem.Value, TimeUnit.Days),"dd")
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                Label6_1 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Font: =App.Theme.Font
+                    Height: =466
+                    Size: =13
+                    Text: =""
+                    Width: =Parent.TemplateWidth
+                    Y: =26
+                    ZIndex: =2
+
+                Gallery5_1 As gallery.galleryVertical:
+                    '#CopilotOverlayLabel': ="Filtrada"
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    DelayItemLoading: =true
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =278
+                    Items: |
+                        =/*If(Dropdown4.Selected.Value = "No aplica";
+                        SortByColumns(Filter(programación;Fecha=ThisItem.Value);"field_15";SortOrder.Ascending);
+                        First(Filter(programación;Fecha=ThisItem.Value; Dropdown4.Selected.Value = Programa)))*/
+                        If(Dropdown12.Selected.Value = "No aplica" && IsBlank(TextInput10.Text),
+                        SortByColumns(Filter(agrupacion2,DateValue(field_16) = DateAdd(varFirstDayOfWeek1, ThisItem.Value, TimeUnit.Days)),"field_17",SortOrder.Ascending),
+                        SortByColumns(Filter(agrupacion2,DateValue(field_16) = DateAdd(varFirstDayOfWeek1, ThisItem.Value, TimeUnit.Days),field_9 = Dropdown12.Selected.Value),"field_17",SortOrder.Ascending))
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =88
+                    Width: =Parent.TemplateWidth
+                    Y: =27
+                    ZIndex: =3
+
+                    Button20_1 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(22, 116, 180, 1)
+                        Font: =App.Theme.Font
+                        Height: =73
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: |-
+                            =ColorFade(ColorValue("#00476f"), -20%)
+                        OnSelect: |
+                            =
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        Size: =12
+                        Text: |-
+                            =ThisItem.field_9 & Char(10) & "Hora Inicio: " & ThisItem.field_17 & Char(10) & "Hora Fin: " & ThisItem.field_18
+                        Visible: =If(ThisItem.field_9 = "No aplica", false, true)
+                        Width: =172
+                        X: =12
+                        Y: =8
+                        ZIndex: =1
+
+            Button10_14 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Lunes"
+                Width: =195
+                Y: =369
+                ZIndex: =8
+
+            Button10_15 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Martes"
+                Width: =195
+                X: =195
+                Y: =369
+                ZIndex: =9
+
+            Button10_16 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Miércoles"
+                Width: =195
+                X: =390
+                Y: =369
+                ZIndex: =10
+
+            Button10_17 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Jueves"
+                Width: =195
+                X: =585
+                Y: =369
+                ZIndex: =11
+
+            Button10_18 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Viernes"
+                Width: =195
+                X: =780
+                Y: =369
+                ZIndex: =12
+
+            Button10_19 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Sábado"
+                Width: =195
+                X: =975
+                Y: =369
+                ZIndex: =13
+
+            Button10_20 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(204, 200, 200, 1)
+                Font: =App.Theme.Font
+                Height: =34
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                Italic: =true
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =15
+                Text: ="Domingo"
+                Width: =195
+                X: =1170
+                Y: =369
+                ZIndex: =14
+
+            Button39 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                HoverBorderColor: |-
+                    =ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: |-
+                    =Set(consolidado, JSON(Gallery9.AllItems, JSONFormat.IgnoreBinaryData & JSONFormat.IgnoreUnsupportedTypes));
+                    Set(_url6,ConsolidadoProgramas.Run(consolidado).urlconsolidado);
+                    Launch(_url6)
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Descargar"
+                X: =1187
+                Y: =17
+                ZIndex: =23
+
+            TextInput10 As text:
+                BorderColor: =RGBA(0, 71, 111, 1)
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =App.Theme.Font
+                HintText: ="Número semana"
+                HoverBorderColor: =App.Theme.Colors.Darker40
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Size: =13
+                Width: =252
+                X: =313
+                Y: =17
+                ZIndex: =24
+
+            Label66 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Size: =13
+                Text: |-
+                    ="Semana actual: " & WeekNum(Today(),StartOfWeek.Monday)
+                Width: =159
+                X: =582
+                Y: =17
+                ZIndex: =25
+
+            Container24 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =236
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                Width: =Parent.Width
+                Y: =76
+                ZIndex: =26
+
+                Container30 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =1920
+                    ZIndex: =1
+
+                    Gallery9 As gallery.galleryVertical:
+                        '#CopilotOverlayLabel': ="Filtrada"
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DelayItemLoading: =true
+                        Height: =190
+                        Items: |-
+                            =If(Dropdown12.Selected.Value = "No aplica" && IsBlank(TextInput10.Text),
+                            Producción_1,
+                            
+                            If(Dropdown12.Selected.Value <> "No aplica" && IsBlank(TextInput10.Text),
+                            
+                            Filter(Producción_1, Programa = Dropdown12.Selected.Value),
+                            
+                            If(Dropdown12.Selected.Value = "No aplica" && Not(IsBlank(TextInput10.Text)),
+                            
+                            Filter(Producción_1, 'Numero semana' = Value(TextInput10.Text)),
+                            
+                            If(Dropdown12.Selected.Value <> "No aplica" && Not(IsBlank(TextInput10.Text)),
+                            
+                            Filter(Producción_1, Programa = Dropdown12.Selected.Value, 'Numero semana' = Value(TextInput10.Text))
+                            ))))
+                        Layout: =Layout.Vertical
+                        LoadingSpinner: =LoadingSpinner.Data
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =41
+                        Width: =Parent.Width
+                        Y: =34
+                        ZIndex: =1
+
+                        Label64 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =Text(ThisItem.Fecha,"dd/mm/yyy")
+                            Width: =Button14.Width
+                            X: =Button14.X
+                            ZIndex: =1
+
+                        Label64_1 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.NombreEmpleado
+                            Width: =Button14_1.Width
+                            X: =Button14_1.X
+                            ZIndex: =2
+
+                        Label64_2 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.Programa
+                            Width: =Button14_2.Width
+                            X: =Button14_2.X
+                            ZIndex: =3
+
+                        Label64_3 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.'Centro costo'
+                            Width: =Button14_3.Width
+                            X: =Button14_3.X
+                            Y: =1
+                            ZIndex: =4
+
+                        Label64_4 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.Ubicacion
+                            Width: =Button15.Width
+                            X: =Button15.X
+                            ZIndex: =5
+
+                        Label64_5 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.Rol
+                            Width: =Button16.Width
+                            X: =Button16.X
+                            Y: =1
+                            ZIndex: =6
+
+                        Label65 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =Text(Value(ThisItem.'Cantidad horas', "en-US"), "0.0", "en-US")
+                            Width: =Button38.Width
+                            X: =Button38.X
+                            Y: =1
+                            ZIndex: =7
+
+                        Label68 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.'Numero semana'
+                            Visible: =false
+                            X: =336
+                            Y: =1
+                            ZIndex: =8
+
+                        Label70 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.'Producción externa'
+                            Width: =Button16_1.Width
+                            X: =Button16_1.X
+                            ZIndex: =9
+
+                        Label71 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            OnSelect: =Select(Parent)
+                            Size: =13
+                            Text: =ThisItem.'Produccion eventual'
+                            Width: =Button16_2.Width
+                            X: =Button16_2.X
+                            Y: =1
+                            ZIndex: =10
+
+                    Button14 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Fecha"
+                        Width: =150
+                        ZIndex: =2
+
+                    Button14_1 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Empleado"
+                        Width: =300
+                        X: =Button14.X + Button14.Width
+                        ZIndex: =3
+
+                    Button14_2 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Programa"
+                        Width: =250
+                        X: =Button14.X + Button14.Width+Button14_1.Width
+                        ZIndex: =4
+
+                    Button14_3 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Centro Costos"
+                        Width: =200
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width+Button16_1.Width+Button16_2.Width
+                        ZIndex: =5
+
+                    Button15 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Ubicación"
+                        Width: =200
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width+Button16_1.Width+Button16_2.Width+Button14_3.Width
+                        ZIndex: =6
+
+                    Button16 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Rol"
+                        Width: =192
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width+Button16_1.Width+Button16_2.Width+Button14_3.Width+Button15.Width
+                        ZIndex: =7
+
+                    Button38 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Cant. Horas"
+                        Width: =130
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width+Button16_1.Width+Button16_2.Width+Button14_3.Width+Button15.Width+Button16.Width
+                        ZIndex: =8
+
+                    Button16_1 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Producción Externa"
+                        Width: =250
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width
+                        ZIndex: =9
+
+                    Button16_2 As button:
+                        Align: =Align.Left
+                        BorderColor: =App.Theme.Colors.Primary
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(204, 200, 200, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =App.Theme.Colors.Darker10
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =App.Theme.Colors.Darker40
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: ="Nombre Programa"
+                        Width: =250
+                        X: =Button14.X + Button14.Width+Button14_1.Width+Button14_2.Width+Button16_1.Width
+                        ZIndex: =10
+
+    Icon4_1 As icon.ChevronLeft:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(236, 237, 238, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =30
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Producción)
+        Width: =30
+        X: =12
+        Y: =16
+        ZIndex: =4
+

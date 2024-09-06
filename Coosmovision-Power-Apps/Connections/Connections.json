@@ -1,0 +1,571 @@
+{
+  "097cbb06-f668-4054-b72f-984691e97ad1": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "36e53c00-e912-430d-b03f-f356e702a5da": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "a1fbb467-007d-415c-af26-302fe3b229b8": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "352d60da-7b1a-4499-880d-549574fb3e47"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "a1fbb467-007d-415c-af26-302fe3b229b8"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "36e53c00-e912-430d-b03f-f356e702a5da"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "352d60da-7b1a-4499-880d-549574fb3e47"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ConsolidadoHoras"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "a1fbb467-007d-415c-af26-302fe3b229b8",
+      "shared_onedriveforbusiness": "36e53c00-e912-430d-b03f-f356e702a5da"
+    },
+    "dependents": [],
+    "id": "097cbb06-f668-4054-b72f-984691e97ad1"
+  },
+  "13d7aa47-0e46-48db-9173-cb85075633a6": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "HorasSemanaResta"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "e0ea9eba-f298-49b7-9fd5-ccd80e5e3395"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "HorasSemanaResta"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "e0ea9eba-f298-49b7-9fd5-ccd80e5e3395"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "HorasSemanaResta"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "13d7aa47-0e46-48db-9173-cb85075633a6"
+  },
+  "3435ae4f-a792-48ee-a94c-829f834ee6d9": {
+    "appActions": [
+      "HttpRequest"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Grupos de Office 365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1681/1.0.1681.3663/office365groups/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365groups",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "GruposdeOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "3435ae4f-a792-48ee-a94c-829f834ee6d9"
+  },
+  "36e53c00-e912-430d-b03f-f356e702a5da": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive para la Empresa",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1689/1.0.1689.3722/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3a604861-7911-469c-8ea5-d141afbf8f82",
+      "e176a5f7-bd63-46c9-93fa-c05b644418c9",
+      "097cbb06-f668-4054-b72f-984691e97ad1",
+      "a9573bbf-2720-4e75-ae19-a8459a3c3546"
+    ],
+    "id": "36e53c00-e912-430d-b03f-f356e702a5da"
+  },
+  "3a604861-7911-469c-8ea5-d141afbf8f82": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "36e53c00-e912-430d-b03f-f356e702a5da": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "a1fbb467-007d-415c-af26-302fe3b229b8": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "3ff776bf-f7f6-4079-a380-4c9d3038563d"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "a1fbb467-007d-415c-af26-302fe3b229b8"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "36e53c00-e912-430d-b03f-f356e702a5da"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "3ff776bf-f7f6-4079-a380-4c9d3038563d"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Bloqueados"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "a1fbb467-007d-415c-af26-302fe3b229b8",
+      "shared_onedriveforbusiness": "36e53c00-e912-430d-b03f-f356e702a5da"
+    },
+    "dependents": [],
+    "id": "3a604861-7911-469c-8ea5-d141afbf8f82"
+  },
+  "3b5f58f0-f761-400c-a2d1-c1918c084c1e": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Delete",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://cesdenet.sharepoint.com/sites/cosmovision": {
+        "dataSources": {
+          "Cargo": {
+            "tableName": "1c459078-d42c-4bc8-8bbe-cff913259702"
+          }
+        }
+      },
+      "https://produccionescosmovis704.sharepoint.com/sites/COSMO-FOPRO": {
+        "dataSources": {
+          "Cargo_1": {
+            "tableName": "fa46c0a0-a03d-4eba-8f4a-75840fb90c0a"
+          },
+          "Centro de costos": {
+            "tableName": "0d5de0f9-5f8d-48e5-8915-c00433058872"
+          },
+          "Empleados_1": {
+            "tableName": "961816fa-95ea-41e9-81bd-dd4f1b046631"
+          },
+          "Estado": {
+            "tableName": "734da849-c9f5-45f1-a614-d0e8bdf2b489"
+          },
+          "Festivos": {
+            "tableName": "6e83ab49-c5c4-4483-b108-d7475b2622fd"
+          },
+          "HorasAcumuladasDia_1": {
+            "tableName": "2c77cadb-958c-4da1-92b2-5807901534ed"
+          },
+          "HorasAcumuladasSemana": {
+            "tableName": "d128c44d-38ef-40a5-9346-f38192ecb439"
+          },
+          "Producción_1": {
+            "tableName": "6a05e52f-f8f2-4d8c-8720-a99783feea3a"
+          },
+          "Programa": {
+            "tableName": "23a6b8d2-d81b-4193-97c2-6341d00c3cf1"
+          },
+          "Programación_1": {
+            "tableName": "ce0d37a6-73f6-4ba0-87d6-bfe19b84dc2a"
+          },
+          "ProgramasTerceros": {
+            "tableName": "850acac2-ef80-4dc0-b755-088bacfa300b"
+          },
+          "Roles": {
+            "tableName": "95227e44-4c6a-4d3f-9076-8c5c6eea18b0"
+          },
+          "Transporte": {
+            "tableName": "3ec8ea09-4156-4be9-8601-3c1aeb16de92"
+          },
+          "Ubicación": {
+            "tableName": "cd198c16-3bf6-46b1-9445-5259b077e2e3"
+          },
+          "Usuarios": {
+            "tableName": "fb259976-7d17-4ad9-bfa8-8a9e2749bd58"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Cargo",
+      "festivos",
+      "programaTerceros",
+      "Cargo_1",
+      "Empleados_1",
+      "Estado",
+      "HorasAcumuladasDia_1",
+      "HorasAcumuladasSemana",
+      "Producción_1",
+      "Programa",
+      "Programación_1",
+      "ProgramasTerceros",
+      "Roles",
+      "Transporte",
+      "Ubicación",
+      "Festivos",
+      "Usuarios",
+      "Centro de costos"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "3b5f58f0-f761-400c-a2d1-c1918c084c1e"
+  },
+  "66987bf8-9a4c-4a92-a977-0aad6dff3957": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "HorasSemana"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "c83dbd8e-5914-4037-9098-0fbf55ee3d82"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "HorasSemana"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "c83dbd8e-5914-4037-9098-0fbf55ee3d82"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "HorasSemana"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "66987bf8-9a4c-4a92-a977-0aad6dff3957"
+  },
+  "6bf8e77f-e131-43b6-a009-37faa108516a": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Usuarios de Office 365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1702/1.0.1702.3810/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "UsuariosdeOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6bf8e77f-e131-43b6-a009-37faa108516a"
+  },
+  "6f0286c3-c9b9-41d5-a0f3-86b67f07f7ca": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office\u00A0365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1706/1.0.1706.3850/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6f0286c3-c9b9-41d5-a0f3-86b67f07f7ca"
+  },
+  "a1fbb467-007d-415c-af26-302fe3b229b8": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Empresas)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1702/1.0.1702.3814/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "3a604861-7911-469c-8ea5-d141afbf8f82",
+      "e176a5f7-bd63-46c9-93fa-c05b644418c9",
+      "097cbb06-f668-4054-b72f-984691e97ad1",
+      "f596ec00-7e2f-48ff-a63e-d7cf6d9c9af9",
+      "a9573bbf-2720-4e75-ae19-a8459a3c3546"
+    ],
+    "id": "a1fbb467-007d-415c-af26-302fe3b229b8"
+  },
+  "a5a734e8-eeff-4db0-8502-50348fcd6782": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "HorasdiaResta"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "23e3b755-f552-428b-9cff-1aa598fe4b59"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "HorasdiaResta"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "23e3b755-f552-428b-9cff-1aa598fe4b59"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "HorasdiaResta"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a5a734e8-eeff-4db0-8502-50348fcd6782"
+  },
+  "a9573bbf-2720-4e75-ae19-a8459a3c3546": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "36e53c00-e912-430d-b03f-f356e702a5da": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "a1fbb467-007d-415c-af26-302fe3b229b8": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowDisplayName": {
+          "value": "ConsolidadoEmpleado"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "63560207-203b-44d3-8abb-b0fcaebd2683"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "a1fbb467-007d-415c-af26-302fe3b229b8"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "36e53c00-e912-430d-b03f-f356e702a5da"
+        },
+        "workflowDisplayName": {
+          "value": "ConsolidadoEmpleado"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "63560207-203b-44d3-8abb-b0fcaebd2683"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ConsolidadoEmpleado"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "a1fbb467-007d-415c-af26-302fe3b229b8",
+      "shared_onedriveforbusiness": "36e53c00-e912-430d-b03f-f356e702a5da"
+    },
+    "dependents": [],
+    "id": "a9573bbf-2720-4e75-ae19-a8459a3c3546"
+  },
+  "ac04c36a-f5be-4852-a2a4-2594f3144ae4": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "Horasdia"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "763fe69e-b192-4db6-be9d-dccc9ffab273"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "Horasdia"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "763fe69e-b192-4db6-be9d-dccc9ffab273"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Horasdia"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ac04c36a-f5be-4852-a2a4-2594f3144ae4"
+  },
+  "e176a5f7-bd63-46c9-93fa-c05b644418c9": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "36e53c00-e912-430d-b03f-f356e702a5da": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "a1fbb467-007d-415c-af26-302fe3b229b8": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "54d4d245-2ea0-49e6-bd39-540c852d2a87"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "a1fbb467-007d-415c-af26-302fe3b229b8"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "36e53c00-e912-430d-b03f-f356e702a5da"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "54d4d245-2ea0-49e6-bd39-540c852d2a87"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Empleados"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "a1fbb467-007d-415c-af26-302fe3b229b8",
+      "shared_onedriveforbusiness": "36e53c00-e912-430d-b03f-f356e702a5da"
+    },
+    "dependents": [],
+    "id": "e176a5f7-bd63-46c9-93fa-c05b644418c9"
+  },
+  "f596ec00-7e2f-48ff-a63e-d7cf6d9c9af9": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "a1fbb467-007d-415c-af26-302fe3b229b8": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowDisplayName": {
+          "value": "ConsolidadoProgramas"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "aeb677bf-4fb8-4771-aa3c-5855c89a8210"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "a1fbb467-007d-415c-af26-302fe3b229b8"
+        },
+        "workflowDisplayName": {
+          "value": "ConsolidadoProgramas"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "aeb677bf-4fb8-4771-aa3c-5855c89a8210"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ConsolidadoProgramas"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "a1fbb467-007d-415c-af26-302fe3b229b8"
+    },
+    "dependents": [],
+    "id": "f596ec00-7e2f-48ff-a63e-d7cf6d9c9af9"
+  }
+}

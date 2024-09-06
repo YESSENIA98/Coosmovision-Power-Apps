@@ -1,0 +1,231 @@
+Producción As screen:
+    Fill: =RGBA(236, 237, 238, 1)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: |-
+        =ClearCollect(agrupacion1, GroupBy(Parseo,field_9,field_16,field_17,field_18,field_11,field_14, field_10,field_31,Agrupada));
+        ClearCollect(agrupacionProgra, GroupBy(agrupacion1,field_9,field_16,field_17,field_18,field_11,field_14,field_10,field_31,AgrupadaProgra));
+
+    headerProduccion As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(0, 71, 111, 1)
+        Height: =61
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container4_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =61
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Label30_1 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(236, 237, 238, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Lighter
+                Size: =18
+                Text: ="Producción"
+                X: =102
+                Y: =11
+                ZIndex: =4
+
+    Container11 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height-61
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        Y: =headerProduccion.Height
+        ZIndex: =2
+
+        Container18 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container22 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Bold
+                Fill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =200
+                X: =230
+                Y: =295
+                ZIndex: =1
+
+                Button34 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 71, 111, 1)
+                    Font: =App.Theme.Font
+                    HoverBorderColor: |-
+                        =ColorFade(ColorValue("#1674b4"), -20%)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: |-
+                        =ColorFade(ColorValue("#1674b4"), -15%)
+                    OnSelect: =Navigate(ProducciónPrograma)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    Size: =15
+                    Text: |-
+                        ="Programa
+                        "
+                    X: =20
+                    Y: =140
+                    ZIndex: =1
+
+                Image25 As image:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =80
+                    Image: =claqueta
+                    Width: =80
+                    X: =60
+                    Y: =30
+                    ZIndex: =2
+
+            Container23 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Bold
+                Fill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =200
+                X: =583
+                Y: =295
+                ZIndex: =2
+
+                Button35 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 71, 111, 1)
+                    Font: =App.Theme.Font
+                    HoverBorderColor: |-
+                        =ColorFade(ColorValue("#1674b4"), -20%)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: |-
+                        =ColorFade(ColorValue("#1674b4"), -20%)
+                    OnSelect: =Navigate(ProducciónEmpleado)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    Size: =15
+                    Text: ="Empleados"
+                    X: =20
+                    Y: =140
+                    ZIndex: =1
+
+                Image26 As image:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =90
+                    Image: =empleados
+                    Width: =80
+                    X: =60
+                    Y: =30
+                    ZIndex: =2
+
+            Label11 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =100
+                Size: =30
+                Text: ="Selecciona donde quieres ingresar la producción"
+                Width: =600
+                X: =383
+                Y: =54
+                ZIndex: =3
+
+            Container22_1 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Bold
+                Fill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =200
+                X: =936
+                Y: =295
+                ZIndex: =4
+
+                Button34_1 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 71, 111, 1)
+                    Font: =App.Theme.Font
+                    HoverBorderColor: |-
+                        =ColorFade(ColorValue("#1674b4"), -20%)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: |-
+                        =ColorFade(ColorValue("#1674b4"), -15%)
+                    OnSelect: =Navigate(ProducciónCalendario)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    Size: =15
+                    Text: |-
+                        ="Calendario
+                        "
+                    X: =20
+                    Y: =140
+                    ZIndex: =1
+
+                Image25_1 As image:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =80
+                    Image: =schedule_2669444
+                    Width: =80
+                    X: =60
+                    Y: =30
+                    ZIndex: =2
+
+    Component_menu_8 As Component_menu:
+        Height: =61
+        items: =Navegacion
+        Width: =915
+        ZIndex: =3
+
+    Icon5_1 As icon.ChevronLeft:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(236, 237, 238, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =30
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Inicio)
+        Width: =30
+        X: =72
+        Y: =16
+        ZIndex: =4
+

@@ -1,0 +1,466 @@
+"Inicio As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    BackgroundImage: =
+    Fill: =RGBA(22, 116, 180, 1)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =
+
+    ContainerInicio As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height-120
+        RadiusBottomLeft: =30
+        RadiusBottomRight: =30
+        RadiusTopLeft: =30
+        RadiusTopRight: =30
+        Width: =Parent.Width-120
+        X: =60
+        Y: |
+            =60
+        ZIndex: =20
+
+        ButtonProgramación As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =9
+
+            Button9_2 As button:
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Producción", DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                Height: =30
+                HoverBorderColor: |-
+                    =
+                    ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =
+                    ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: =Navigate(Programación)
+                PressedBorderColor: |-
+                    =ColorFade(ColorValue("#00476f"), -20%)
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Programación"
+                Tooltip: ="Programación"
+                Width: =170
+                X: =540
+                Y: =556
+                ZIndex: =3
+
+            Image2 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Producción", DisplayMode.Edit,DisplayMode.Disabled)
+                Height: =80
+                Image: =schedule_2669444
+                Tooltip: ="Programación"
+                Width: =80
+                X: =585
+                Y: =465
+                ZIndex: =6
+
+        ButtonProduccion As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =9
+
+            Button9_1 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Producción", DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                Height: =30
+                HoverBorderColor: |-
+                    =ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: =Navigate(Producción)
+                PressedBorderColor: |-
+                    =ColorFade(ColorValue("#00476f"), -20%)
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Producción"
+                Tooltip: ="Producción"
+                Width: =170
+                X: =790
+                Y: =556
+                ZIndex: =2
+
+            Image3 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Producción", DisplayMode.Edit,DisplayMode.Disabled)
+                Height: =80
+                Image: =lista
+                Tooltip: ="Producción"
+                Width: =80
+                X: =835
+                Y: =465
+                ZIndex: =7
+
+        ButtonInformes As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =9
+
+            Button9_3 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Consulta" || varUsuarios = "Contabilidad", DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                Height: =30
+                HoverBorderColor: |-
+                    =ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: =Navigate(Informe)
+                PressedBorderColor: |-
+                    =ColorFade(ColorValue("#00476f"), -20%)
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Informes"
+                Tooltip: ="Informes"
+                Width: =170
+                X: =1040
+                Y: =556
+                ZIndex: =4
+
+            Image4 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador" || varUsuarios = "Consulta" || varUsuarios = "Contabilidad", DisplayMode.Edit,DisplayMode.Disabled)
+                Height: =80
+                Image: =stats_1420470
+                Tooltip: ="Informes"
+                Width: =80
+                X: =1085
+                Y: =465
+                ZIndex: =8
+
+        Image7 As image:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =98
+            Image: ='Sin-título-1'
+            Width: =750
+            X: =250
+            Y: =204
+            ZIndex: =10
+
+        ButtonEmpleados As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =13
+
+            Button9 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador", DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                Height: =30
+                HoverBorderColor: |-
+                    =
+                    ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: =Navigate(Empleados)
+                PressedBorderColor: |-
+                    =ColorFade(ColorValue("#00476f"), -20%)
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Empleados"
+                Tooltip: ="Empleados"
+                Width: =170
+                X: =290
+                Y: =556
+                ZIndex: =11
+
+            Image1 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador", DisplayMode.Edit,DisplayMode.Disabled)
+                Height: =80
+                Image: =empleados
+                OnSelect: =60
+                Tooltip: ="Empleados"
+                Width: =80
+                X: =335
+                Y: =465
+                ZIndex: =12
+
+        Timer1_1 As timer:
+            AutoStart: =true
+            BorderColor: =App.Theme.Colors.Primary
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =60
+            Fill: =App.Theme.Colors.Primary
+            Font: =App.Theme.Font
+            Height: =45
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =If(
+                Len(Vnext) > 1,
+                Set(Vresultado, GruposdeOffice365.HttpRequest(Vnext,"GET",""));
+                Set(Vnext,Text(Vresultado.'@odata.nextLink'));
+                Collect(ProgramacionAll,Table(Vresultado.value));
+                
+                ClearCollect(Parseo,AddColumns(ProgramacionAll,
+                field_2,Value.fields.field_2,
+                field_3,Value.fields.field_3,
+                field_4,Value.fields.field_4,
+                field_5,Value.fields.field_5,
+                field_6,Value.fields.field_6,
+                field_7,Value.fields.field_7,
+                field_8,Value.fields.field_8,
+                field_9,Text(Value.fields.field_9),
+                field_10,Text(Value.fields.field_10),
+                field_11,Text(Value.fields.field_11),
+                field_12,Text(Value.fields.field_12),
+                field_13,Text(Value.fields.field_13),
+                field_14,Text(Value.fields.field_14),
+                field_15,Text(Value.fields.field_15),
+                field_16,Text(Value.fields.field_16),
+                field_17,Text(Value.fields.field_17),
+                field_18,Text(Value.fields.field_18),
+                field_27,Value.fields.field_27,field_29,Value.fields.field_29,field_30,Value.fields.field_30,
+                field_31,Text(Value.fields.field_31),
+                field_32,Value.fields.field_32,Total_x0020_horas,Value.fields.Total_x0020_horas,id,Value.id));
+                
+                ClearCollect(agrupacion1,GroupBy(Parseo,field_9,field_16,field_17,field_18,field_11,field_14,field_10,field_31,Agrupada));
+                
+                Timer1_1.Start)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Repeat: =true
+            Visible: =false
+            X: =60
+            Y: =60
+            ZIndex: =15
+
+        ButtonAdministrativos As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =15
+
+            Button9_4 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador", DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(0, 71, 111, 1)
+                Font: =App.Theme.Font
+                Height: =30
+                HoverBorderColor: |-
+                    =
+                    ColorFade(ColorValue("#1674b4"), -20%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: |-
+                    =ColorFade(ColorValue("#1674b4"), -15%)
+                OnSelect: =Navigate(Administrativos)
+                PressedBorderColor: |-
+                    =ColorFade(ColorValue("#00476f"), -20%)
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Administrativo"
+                Tooltip: ="Empleados"
+                Width: =170
+                X: =40
+                Y: =556
+                ZIndex: =13
+
+            Image1_1 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUsuarios = "Administrador", DisplayMode.Edit,DisplayMode.Disabled)
+                Height: =80
+                Image: =user_1077114
+                OnSelect: =60
+                Tooltip: ="Empleados"
+                Width: =80
+                X: =85
+                Y: =465
+                ZIndex: =14
+
+        Timer1_3 As timer:
+            AutoStart: =true
+            BorderColor: =App.Theme.Colors.Primary
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =60
+            Fill: =App.Theme.Colors.Primary
+            Font: =App.Theme.Font
+            Height: =45
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =If(
+                Len(VnextProduccion) > 1,
+                Set(Vproduccion, GruposdeOffice365.HttpRequest(VnextProduccion,"GET",""));
+                Set(VnextProduccion,Text(Vproduccion.'@odata.nextLink'));
+                Collect(ProduccionAll,Table(Vproduccion.value));
+                
+                ClearCollect(ParseoProduccion,AddColumns(ProduccionAll,
+                field_9,Text(Value.fields.field_9),
+                field_11,Text(Value.fields.field_11),
+                field_14,Text(Value.fields.field_14),
+                field_16,Text(Value.fields.field_16),
+                field_17,Text(Value.fields.field_17),
+                field_18,Text(Value.fields.field_18),
+                field_36,Text(Value.fields.field_36)));
+                
+                ClearCollect(agrupacion2,GroupBy(ParseoProduccion,field_9,field_16,field_17,field_18,field_11,field_14,field_36,Agrupada));
+                
+                Timer1_3.Start)
+                
+                
+                /*field_9;field_16;field_17;field_18;field_11;field_14;field_36*/
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Repeat: =true
+            Visible: =false
+            X: =80
+            Y: =80
+            ZIndex: =16
+
+        Timer1_4 As timer:
+            AutoStart: =true
+            BorderColor: =App.Theme.Colors.Primary
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =60
+            Fill: =App.Theme.Colors.Primary
+            Font: =App.Theme.Font
+            Height: =45
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =If(
+                Len(VnextHorasdia) > 1,
+                Set(Vhorasdia, GruposdeOffice365.HttpRequest(VnextHorasdia,"GET",""));
+                Set(VnextHorasdia,Text(Vhorasdia.'@odata.nextLink'));
+                Collect(HorasdiaAll,Table(Vhorasdia.value));
+                
+                ClearCollect(ParseoHorasdia,AddColumns(HorasdiaAll,
+                field_2,DateValue((Value.fields.field_2)),
+                field_3,Value(Value.fields.field_3),
+                field_4,Value(Value.fields.field_4),
+                field_5,Value(Value.fields.field_5),
+                field_6,Value(Value.fields.field_6),
+                field_7,Value(Value.fields.field_7),
+                field_8,Value(Value.fields.field_8),
+                field_9,Value(Value.fields.field_5),
+                field_10,Value(Value.fields.field_10),
+                field_11,Value(Value.fields.field_11),
+                field_12,Value(Value.fields.field_12),
+                field_14,Value(Value.fields.field_14),
+                Nombre_x0020_dia,Text(Value.fields.Nombre_x0020_dia)));
+                
+                
+                Timer1_4.Start)
+                
+                
+                /*field_9;field_16;field_17;field_18;field_11;field_14;field_36*/
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Repeat: =true
+            Visible: =false
+            X: =100
+            Y: =100
+            ZIndex: =17
+
+        Timer1_5 As timer:
+            AutoStart: =true
+            BorderColor: =App.Theme.Colors.Primary
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =60
+            Fill: =App.Theme.Colors.Primary
+            Font: =App.Theme.Font
+            Height: =45
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =If(
+                Len(VnextHorasemana) > 1,
+                Set(Vhorasemana, GruposdeOffice365.HttpRequest(VnextHorasemana,"GET",""));
+                Set(VnextHorasemana,Text(Vhorasemana.'@odata.nextLink'));
+                Collect(HorasemanaAll,Table(Vhorasemana.value));
+                
+                ClearCollect(ParseoHorasemana,AddColumns(HorasemanaAll,
+                field_2,Text(Value.fields.field_2),
+                field_3,Value(Value.fields.field_3),
+                field_4,Value(Value.fields.field_4),
+                field_5,Value(Value.fields.field_5),
+                field_6,Value(Value.fields.field_6),
+                field_7,Value(Value.fields.field_7),
+                field_8,Value(Value.fields.field_8),
+                field_9,Value(Value.fields.field_9),
+                field_10,Value(Value.fields.field_10),
+                field_11,Value(Value.fields.field_11),
+                field_12,Value(Value.fields.field_12),
+                field_13,Value(Value.fields.field_13),
+                A_x00f1_o,Text(Value.fields.A_x00f1_o)));
+                
+                
+                Timer1_5.Start)
+                
+                
+                /*field_9;field_16;field_17;field_18;field_11;field_14;field_36*/
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Repeat: =true
+            Visible: =false
+            X: =120
+            Y: =120
+            ZIndex: =18
+
